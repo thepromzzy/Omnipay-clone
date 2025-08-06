@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OmniPay - Titus Salisu Ibukun</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="page-header">
+        <h1>Transfer Money</h1>
+    </header>
+    <main class="container">
+        <header class="user-header">
+            <img src="https://omnipay-accounts.pages.dev/user.png" alt="avatar" class="avatar" />
+            <h1 class="user-name">Titus Salisu Ibukun</h1>
+        </header>
+
+        <section class="instruction">
+            <h2>Send money via Bank Transfer</h2>
+            <ol>
+                <li>Copy the account details provided below</li>
+                <li>The shop owner's wallet will be credited immediately</li>
+            </ol>
+        </section>
+
+        <section class="bank-select">
+            <p class="bank-list-label">Select Bank</p>
+            <d class="bank-list">
+                <div class="bank-wrapper">
+                    <div class="bank-option selected" data-bank="fcmb">
+                        <img src="/images/first-city-monument-bank.png" alt="FCMB" />
+                    </div>
+                    <span class="bank-name">FCMB</span>
+                </div>
+                <div class="bank-wrapper">
+                    <div class="bank-option" data-bank="firstbank">
+                        <img src="/images/first-bank-of-nigeria.png" alt="First Bank" />
+                    </div>
+                    <span class="bank-name">First Bank</span>
+                </div>
+                <div class="bank-wrapper">
+                    <div class="bank-option" data-bank="globus">
+                        <img src="/images/globus-bank.png" alt="Globus Bank" />
+                    </div>
+                    <span class="bank-name">Globus Bank</span>
+                </div>
+                <div class="bank-wrapper">
+                    <div class="bank-option" data-bank="gtb">
+                        <img src="/images/guaranty-trust-bank.png" alt="GTBank" />
+                    </div>
+                    <span class="bank-name">Guaranty Trust Bank</span>
+                </div>
+                <div class="bank-wrapper">
+                    <div class="bank-option" data-bank="moniepoint">
+                        <img src="/images/moniepoint.png" alt="Monipoint MFB" />
+                    </div>
+                    <span class="bank-name">Moniepoint MFB</span>
+                </div>
+                <div class="bank-wrapper">
+                    <div class="bank-option" data-bank="opay">
+                        <img src="/images/opay.png" alt="Opay" />
+                    </div>
+                    <span class="bank-name">Opay</span>
+                </div>
+                <div class="bank-wrapper">
+                    <div class="bank-option" data-bank="paga">
+                        <img src="/images/paga.png" alt="Paga" />
+                    </div>
+                    <span class="bank-name">Paga</span>
+                </div>
+                <div class="bank-wrapper">
+                    <div class="bank-option" data-bank="paystack">
+                        <img src="/images/paystack.png" alt="Paystack-Titan" />
+                    </div>
+                    <span class="bank-name">Paystack-Titan</span>
+                </div>
+                <div class="bank-wrapper">
+                    <div class="bank-option" data-bank="stanbic">
+                        <img src="/images/stanbic-ibtc-bank.png" alt="Stanbic IBTC" />
+                    </div>
+                    <span class="bank-name">Stanbic Ibtc</span>
+                </div>
+                <div class="bank-wrapper">
+                    <div class="bank-option" data-bank="sterling">
+                        <img src="/images/sterling-bank.png" alt="Sterling Bank" />
+                    </div>
+                    <span class="bank-name">Sterling Bank</span>
+                </div>
+                </div>
+                </div>
+        </section>
+        <section class="account-info">
+            <p class="bank-label">Fcmb</p>
+            <div class="account-field">
+                <label>Account Name</label>
+                <p>Titus Salisu</p>
+            </div>
+            <div class="account-field">
+                <label>Account Number</label>
+                <p>
+                    8900575339
+                    <button class="copy-btn" onclick="copyAccountNumber('8900575339')">
+                        <img src="https://omnipay-accounts.pages.dev/copy-icon.svg" alt="Copy icon" />
+                        copy
+                    </button>
+                </p>
+            </div>
+        </section>
+
+        <button class="share-btn" onclick="shareDetails()">
+            <img src="https://omnipay-accounts.pages.dev/share.svg" alt="Share icon" class="share-icon">
+            Share</button>
+    </main>
+
+    <footer class="footer-powered">
+        <p>Powered by <img src="/images/logo.png" alt="OmniPay Logo" class="footer-logo" /></p>
+    </footer>
+
+    <script>
+        const accountData = {
+            fcmb: {
+                label: "Fcmb",
+                name: "Titus Salisu",
+                number: "8900575339"
+            },
+            firstbank: {
+                label: "First Bank",
+                name: "Titus Salisu",
+                number: "9100034421"
+            },
+            globus: {
+                label: "Globus Bank",
+                name: "Titus Salisu",
+                number: "8698164759"
+            },
+            gtb: {
+                label: "Guaranty Trust Bank",
+                name: "Titus Salisu",
+                number: "0902205625"
+            },
+            moniepoint: {
+                label: "Moniepoint MFB",
+                name: "Titus Salisu",
+                number: "6550000515"
+            },
+            opay: {
+                label: "Opay",
+                name: "Titus Salisu",
+                number: "6124350602"
+            },
+            paga: {
+                label: "Paga",
+                name: "Titus Salisu Ibukun",
+                number: "0518219608"
+            },
+            paystack: {
+                label: "Paystack-Titan",
+                name: "Titus Salisu",
+                number: "9973467925"
+            },
+            stanbic: {
+                label: "Stanbic Ibtc",
+                name: "Titus Salisu",
+                number: "5272163168"
+            },
+            sterling: {
+                label: "Sterling Bank",
+                name: "Titus Salisu",
+                number: "9061672804"
+            }
+        };
+
+        const bankOptions = document.querySelectorAll(".bank-option");
+        const bankLabel = document.querySelector(".bank-label");
+        const accountInfo = document.querySelector(".account-info");
+
+        bankOptions.forEach(option => {
+            option.addEventListener("click", () => {
+                const bank = option.dataset.bank;
+
+                bankOptions.forEach(o => o.classList.remove("selected"));
+                option.classList.add("selected");
+
+                const data = accountData[bank];
+                bankLabel.textContent = data.label;
+                accountInfo.innerHTML = `
+        <p class="bank-label">${data.label}</p>
+        <div class="account-field">
+          <label>Account Name</label>
+          <p>${data.name}</p>
+        </div>
+        <div class="account-field">
+          <label>Account Number</label>
+          <p>
+            ${data.number}
+            <button class="copy-btn" onclick="copyAccountNumber('${data.number}')">
+              <img src="https://omnipay-accounts.pages.dev/copy-icon.svg" alt="Copy icon" />
+              copy
+            </button>
+          </p>
+        </div>
+      `;
+            });
+        });
+
+        function copyAccountNumber(number) {
+            navigator.clipboard.writeText(number)
+                .then(() => alert("Account number copied!"))
+                .catch(() => alert("Failed to copy account number."));
+        }
+
+        function shareDetails() {
+            const label = bankLabel.textContent;
+            const name = accountInfo.querySelectorAll(".account-field p")[0].textContent;
+            const number = accountInfo.querySelectorAll(".account-field p")[1].textContent.trim();
+            const text = `${label}
+Account Name: ${name}
+Account Number: ${number}`;
+
+            if (navigator.share) {
+                navigator.share({
+                    title: "Bank Account Details",
+                    text: text
+                }).catch(console.error);
+            } else {
+                alert("Web Share API is not supported in this browser.");
+            }
+        }
+    </script>
+</body>
+
+</html>
