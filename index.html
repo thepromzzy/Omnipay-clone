@@ -15,28 +15,27 @@
     <header class="page-header">
         <h1>Transfer Money</h1>
     </header>
+
     <main class="container">
         <header class="user-header">
-            <img src="https://omnipay-accounts.pages.dev/user.png" alt="avatar" class="avatar" />
+            <img src="/images/user.png" alt="avatar" class="avatar" />
             <h1 class="user-name">Titus Salisu Ibukun</h1>
         </header>
 
         <section class="instruction">
             <h2>Send money via Bank Transfer</h2>
-            <ol>
-                <li>Copy the account details provided below</li>
-                <li>The shop owner's wallet will be credited immediately</li>
-            </ol>
+            <p>1. Copy the account details provided below</p>
+            <p>2. The shop owner's wallet will be credited immediately</p>
         </section>
 
         <section class="bank-select">
             <p class="bank-list-label">Select Bank</p>
-            <d class="bank-list">
+            <div class="bank-list">
                 <div class="bank-wrapper">
                     <div class="bank-option selected" data-bank="fcmb">
                         <img src="/images/first-city-monument-bank.png" alt="FCMB" />
                     </div>
-                    <span class="bank-name">FCMB</span>
+                    <span class="bank-name">Fcmb</span>
                 </div>
                 <div class="bank-wrapper">
                     <div class="bank-option" data-bank="firstbank">
@@ -92,30 +91,35 @@
                     </div>
                     <span class="bank-name">Sterling Bank</span>
                 </div>
-                </div>
-                </div>
+            </div>
         </section>
+
         <section class="account-info">
             <p class="bank-label">Fcmb</p>
+
             <div class="account-field">
                 <label>Account Name</label>
                 <p>Titus Salisu</p>
             </div>
-            <div class="account-field">
-                <label>Account Number</label>
-                <p>
-                    8900575339
-                    <button class="copy-btn" onclick="copyAccountNumber('8900575339')">
-                        <img src="https://omnipay-accounts.pages.dev/copy-icon.svg" alt="Copy icon" />
-                        copy
-                    </button>
-                </p>
+
+            <div class="account-field"
+                style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                <div>
+                    <label>Account Number</label>
+                    <p class="account-number">8900575339</p>
+                </div>
+                <button class="copy-btn" onclick="copyAccountNumber(this)">
+                    <img src="https://omnipay-accounts.pages.dev/copy-icon.svg" alt="Copy icon" />
+                    <span class="copy-text">Copy</span>
+                </button>
             </div>
         </section>
 
+
         <button class="share-btn" onclick="shareDetails()">
             <img src="https://omnipay-accounts.pages.dev/share.svg" alt="Share icon" class="share-icon">
-            Share</button>
+            Share
+        </button>
     </main>
 
     <footer class="footer-powered">
@@ -124,56 +128,16 @@
 
     <script>
         const accountData = {
-            fcmb: {
-                label: "Fcmb",
-                name: "Titus Salisu",
-                number: "8900575339"
-            },
-            firstbank: {
-                label: "First Bank",
-                name: "Titus Salisu",
-                number: "9100034421"
-            },
-            globus: {
-                label: "Globus Bank",
-                name: "Titus Salisu",
-                number: "8698164759"
-            },
-            gtb: {
-                label: "Guaranty Trust Bank",
-                name: "Titus Salisu",
-                number: "0902205625"
-            },
-            moniepoint: {
-                label: "Moniepoint MFB",
-                name: "Titus Salisu",
-                number: "6550000515"
-            },
-            opay: {
-                label: "Opay",
-                name: "Titus Salisu",
-                number: "6124350602"
-            },
-            paga: {
-                label: "Paga",
-                name: "Titus Salisu Ibukun",
-                number: "0518219608"
-            },
-            paystack: {
-                label: "Paystack-Titan",
-                name: "Titus Salisu",
-                number: "9973467925"
-            },
-            stanbic: {
-                label: "Stanbic Ibtc",
-                name: "Titus Salisu",
-                number: "5272163168"
-            },
-            sterling: {
-                label: "Sterling Bank",
-                name: "Titus Salisu",
-                number: "9061672804"
-            }
+            fcmb: { label: "Fcmb", name: "Titus Salisu", number: "8900575339" },
+            firstbank: { label: "First Bank", name: "Titus Salisu", number: "9100034421" },
+            globus: { label: "Globus Bank", name: "Titus Salisu", number: "8698164759" },
+            gtb: { label: "Guaranty Trust Bank", name: "Titus Salisu", number: "0902205625" },
+            moniepoint: { label: "Moniepoint MFB", name: "Titus Salisu", number: "6550000515" },
+            opay: { label: "Opay", name: "Titus Salisu", number: "6124350602" },
+            paga: { label: "Paga", name: "Titus Salisu Ibukun", number: "0518219608" },
+            paystack: { label: "Paystack-Titan", name: "Titus Salisu", number: "9973467925" },
+            stanbic: { label: "Stanbic Ibtc", name: "Titus Salisu", number: "5272163168" },
+            sterling: { label: "Sterling Bank", name: "Titus Salisu", number: "9061672804" }
         };
 
         const bankOptions = document.querySelectorAll(".bank-option");
@@ -190,38 +154,47 @@
                 const data = accountData[bank];
                 bankLabel.textContent = data.label;
                 accountInfo.innerHTML = `
-        <p class="bank-label">${data.label}</p>
-        <div class="account-field">
-          <label>Account Name</label>
-          <p>${data.name}</p>
-        </div>
-        <div class="account-field">
-          <label>Account Number</label>
-          <p>
-            ${data.number}
-            <button class="copy-btn" onclick="copyAccountNumber('${data.number}')">
-              <img src="https://omnipay-accounts.pages.dev/copy-icon.svg" alt="Copy icon" />
-              copy
-            </button>
-          </p>
-        </div>
-      `;
+  <p class="bank-label">${data.label}</p>
+
+  <div class="account-field">
+    <label>Account Name</label>
+    <p>${data.name}</p>
+  </div>
+
+  <div class="account-field" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;">
+    <div>
+      <label>Account Number</label>
+      <p class="account-number">${data.number}</p>
+    </div>
+    <button class="copy-btn" onclick="copyAccountNumber(this)">
+      <img src="https://omnipay-accounts.pages.dev/copy-icon.svg" alt="Copy icon" />
+      <span class="copy-text">Copy</span>
+    </button>
+  </div>
+`;
+
             });
         });
 
-        function copyAccountNumber(number) {
-            navigator.clipboard.writeText(number)
-                .then(() => alert("Account number copied!"))
-                .catch(() => alert("Failed to copy account number."));
+        function copyAccountNumber(btn) {
+            const numberText = btn.closest(".account-info").querySelector(".account-field:nth-child(3) p").textContent.trim();
+            const copyTextSpan = btn.querySelector(".copy-text");
+
+            navigator.clipboard.writeText(numberText).then(() => {
+                if (copyTextSpan) {
+                    copyTextSpan.textContent = "Copied!";
+                    setTimeout(() => {
+                        copyTextSpan.textContent = "Copy";
+                    }, 1500);
+                }
+            });
         }
 
         function shareDetails() {
             const label = bankLabel.textContent;
             const name = accountInfo.querySelectorAll(".account-field p")[0].textContent;
             const number = accountInfo.querySelectorAll(".account-field p")[1].textContent.trim();
-            const text = `${label}
-Account Name: ${name}
-Account Number: ${number}`;
+            const text = `${label}\nAccount Name: ${name}\nAccount Number: ${number}`;
 
             if (navigator.share) {
                 navigator.share({
