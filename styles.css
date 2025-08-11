@@ -7,16 +7,16 @@ body {
 
 .page-header {
   padding: 12px;
-  border-bottom: 0.2px solid #e0e0e0; /* thin horizontal line */
+  border-bottom: 0.1px solid #e0e0e0;
   text-align: left;
 }
 
 .page-header h1 {
   margin: 2px;
-  font-size: 17px;
-  font-weight: 400;
+  font-size: 18px;
+  font-weight: 600;
   color: black;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: GorditaRegular, sans-serif;
 }
 
 .page-header {
@@ -41,15 +41,15 @@ body {
 }
 
 .avatar {
-  width: 58px;
-  height: 58git px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   margin-bottom: 0px;
 }
 
 .user-name {
   margin: 0px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   color: black;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
