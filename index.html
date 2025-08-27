@@ -13,13 +13,13 @@
 
 <body>
     <header class="page-header">
-        <h1>Transfer Money</h1>
+        Transfer Money
     </header>
 
     <main class="container">
         <header class="user-header">
             <img src="https://omnipay-accounts.pages.dev/user.png" alt="avatar" class="avatar" />
-            <h1 class="user-name">Titus Salisu Ibukun</h1>
+            <h3 class="user-name">Titus Salisu Ibukun</h3>
         </header>
 
         <section class="instruction">
@@ -111,15 +111,17 @@
             </div>
 
             <div class="account-field"
-                style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-right:8px;">
                 <div>
                     <label>Account Number</label>
                     <p class="account-number">8900575339</p>
                 </div>
-                <button class="copy-btn" onclick="copyAccountNumber(this)">
-                    <img src="https://omnipay-accounts.pages.dev/copy-icon.svg" alt="Copy icon" />
-                    <span class="copy-text">Copy</span>
-                </button>
+                <div>
+                    <button class="copy-btn" onclick="copyAccountNumber(this)">
+                        <img src="https://omnipay-accounts.pages.dev/copy-icon.svg" alt="Copy icon" />
+                        <span class="copy-text">Copy</span>
+                    </button>
+                </div>
             </div>
         </section>
 
@@ -131,7 +133,8 @@
     </main>
 
     <footer class="footer-powered">
-        <p>Powered by <img src="/images/logo.png" alt="OmniPay Logo" class="footer-logo" /></p>
+        <p>Powered by <img src="https://omnipay-accounts.pages.dev/logo.png" alt="OmniPay Logo" class="footer-logo" />
+        </p>
     </footer>
 
     <script>
@@ -169,15 +172,17 @@
     <p>${data.name}</p>
   </div>
 
-  <div class="account-field" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;">
+  <div class="account-field" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-right:8px;">
     <div>
       <label>Account Number</label>
       <p class="account-number">${data.number}</p>
     </div>
+    <div>
     <button class="copy-btn" onclick="copyAccountNumber(this)">
       <img src="https://omnipay-accounts.pages.dev/copy-icon.svg" alt="Copy icon" />
       <span class="copy-text">Copy</span>
     </button>
+    </div>
   </div>
 `;
 
@@ -185,18 +190,24 @@
         });
 
         function copyAccountNumber(btn) {
-            const numberText = btn.closest(".account-info").querySelector(".account-field:nth-child(3) p").textContent.trim();
-            const copyTextSpan = btn.querySelector(".copy-text");
+            const numberText = btn.closest(".account-info").querySelector(".account-number").textContent.trim();
 
             navigator.clipboard.writeText(numberText).then(() => {
-                if (copyTextSpan) {
-                    copyTextSpan.textContent = "Copied";
-                    setTimeout(() => {
-                        copyTextSpan.textContent = "Copy";
-                    }, 1500);
-                }
+                const icon = btn.querySelector("img");
+                const textSpan = btn.querySelector(".copy-text");
+
+                // hide icon, show "Copied!"
+                if (icon) icon.style.display = "none";
+                textSpan.textContent = "Copied!";
+
+                // after 1.5s restore
+                setTimeout(() => {
+                    if (icon) icon.style.display = "inline";
+                    textSpan.textContent = "Copy";
+                }, 1500);
             });
         }
+
 
         function shareDetails() {
             const label = bankLabel.textContent;

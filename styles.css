@@ -6,31 +6,26 @@ body {
 }
 
 .page-header {
-  padding: 12px;
-  border-bottom: 0.1px solid #e0e0e0;
+  width: 100%;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(241, 241, 241, 1);
   text-align: left;
-}
-
-.page-header h1 {
+  font-family: GorditaMedium;
   margin: 2px;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 500;
   color: black;
-  font-family: GorditaRegular, sans-serif;
-}
-
-.page-header {
   text-align: center;
-  margin-bottom: 20px;
 }
 
 .container {
+  min-height: 500px;
   max-width: 500px;
   margin: 20px auto 10px;
   padding: 16px;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 0 18px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 14px #00000026;
 }
 
 .user-header {
@@ -77,7 +72,7 @@ body {
 
 .bank-list-label {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   color: black;
   margin-bottom: 0px;
@@ -95,6 +90,7 @@ body {
   overflow-x: auto;
   padding: 10px 0;
   scroll-snap-type: x mandatory;
+  margin-bottom: 30px;
 }
 
 .bank-wrapper {
@@ -140,13 +136,13 @@ body {
 }
 
 .bank-option.selected::after {
-  content: "✔";
+  content: url(https://omnipay-accounts.pages.dev/assets/check-75e0912e.svg);
   position: absolute;
   top: -0px;
   right: -0px;
   background: #a682ff;
   color: #fff;
-  font-size: 12px;
+  font-size: 10px;
   width: 18px;
   height: 18px;
   display: flex;
@@ -183,7 +179,7 @@ body {
 }
 
 .account-field p {
-  font-weight: 545;
+  font-weight: 550;
   font-size: 15px;
   margin: 0;
   display: flex;
@@ -201,7 +197,7 @@ body {
   align-items: center;
   gap: 4px;
   color: #a682ff;
-  font-size: 14px;
+  font-size: 16px;
   margin-left: auto;
   border-left: 1px solid rgba(179, 179, 179, 0.5);
 }
